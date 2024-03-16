@@ -1,17 +1,22 @@
 #!/usr/bin/python3
 # 2-args.py tasks
 
-if __name__ == "__main__":
-    
+import sys
 
-    import sys
+def main():
+    argv = sys.argv[1:]
+    num_args = len(argv)
 
-    count = len(sys.argv) - 1
-    if count == 0:
-        print("0 arguments.")
-    elif count == 1:
-        print("1 argument:")
+    print("Number of argument(s):", end=" ")
+    if num_args == 0:
+        print(".", end="\n\n")
+    elif num_args == 1:
+        print("1 argument:", end="\n")
     else:
-        print("{} arguments:".format(count))
-    for i in range(count):
-        print("{}: {}".format(i + 1, sys.argv[i + 1]))
+        print("{} arguments:".format(num_args), end="\n")
+
+    for i, arg in enumerate(argv, start=1):
+        print("{}: {}".format(i, arg))
+
+if __name__ == "__main__":
+    main()
