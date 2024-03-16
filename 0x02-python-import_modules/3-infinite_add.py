@@ -1,11 +1,17 @@
 #!/bin/bash/python3
-from sys import argv
+import sys
+
+
+def main():
+    # Retrieve command-line arguments excluding the script name
+    args = sys.argv[1:]
+    # Convert arguments to integers and sum them up
+    total = sum(int(arg) for arg in args)
+    # Print the total sum
+    print(total)
+
+# Execute the main function only if the script is run directly (not imported)
+
+
 if __name__ == "__main__":
-    count = len(argv)
-    add = 0
-    if count == 1:
-        print("{}".format(add))
-    else:
-        for i in range(1, count):
-            add += int(argv.__getitem__(i))
-        print("{}".format(add))
+    main()
